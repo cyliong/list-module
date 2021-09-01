@@ -10,7 +10,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Home Page'),
+      home: HomePage(title: 'About'),
       debugShowCheckedModeBanner: false,
     );
   }
