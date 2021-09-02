@@ -10,22 +10,22 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'About'),
+      home: AboutPage(title: 'About'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+class AboutPage extends StatefulWidget {
+  AboutPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _AboutPageState createState() => _AboutPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
