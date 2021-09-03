@@ -14,6 +14,10 @@ class _AboutPageState extends State<AboutPage> {
       appBar: Platform.isIOS
           ? null
           : AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: null,
+              ),
               title: const Text('About'),
             ),
       body: Center(
