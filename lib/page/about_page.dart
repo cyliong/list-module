@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _AboutPageState extends State<AboutPage> {
           : AppBar(
               leading: IconButton(
                 icon: Icon(Icons.arrow_back),
-                onPressed: null,
+                onPressed: () => SystemNavigator.pop(animated: true),
               ),
               title: const Text('About'),
             ),
