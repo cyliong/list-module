@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
@@ -9,9 +11,11 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('About'),
-      ),
+      appBar: Platform.isIOS
+          ? null
+          : AppBar(
+              title: const Text('About'),
+            ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
