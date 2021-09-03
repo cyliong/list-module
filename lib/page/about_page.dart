@@ -16,8 +16,18 @@ class _AboutPageState extends State<AboutPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'List',
+              style: TextStyle(
+                fontSize: 50.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const Text(
+              'Version 1.0.0',
+              style: TextStyle(
+                fontSize: 18.0,
+              ),
             ),
           ],
         ),
