@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class AboutPage extends StatefulWidget {
   @override
@@ -9,6 +10,14 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+  PackageInfo? _packageInfo;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPackageInfo();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,15 +34,15 @@ class _AboutPageState extends State<AboutPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'List',
+            Text(
+              _packageInfo?.appName ?? '',
               style: TextStyle(
                 fontSize: 50.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
-              'Version 1.0.0',
+            Text(
+              'Version ${_packageInfo?.version ?? ''}',
               style: TextStyle(
                 fontSize: 18.0,
               ),
@@ -42,5 +51,12 @@ class _AboutPageState extends State<AboutPage> {
         ),
       ),
     );
+  }
+
+  void _loadPackageInfo() async {
+    _packageInfo = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = _packageInfo;
+    });
   }
 }
