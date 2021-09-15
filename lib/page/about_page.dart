@@ -10,12 +10,12 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  PackageInfo? _packageInfo;
+  late Future<PackageInfo> _packageInfoFuture;
 
   @override
   void initState() {
     super.initState();
-    _loadPackageInfo();
+    _packageInfoFuture = PackageInfo.fromPlatform();
   }
 
   @override
@@ -31,32 +31,35 @@ class _AboutPageState extends State<AboutPage> {
               title: const Text('About'),
             ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              _packageInfo?.appName ?? '',
-              style: TextStyle(
-                fontSize: 50.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'Version ${_packageInfo?.version ?? ''}',
-              style: TextStyle(
-                fontSize: 18.0,
-              ),
-            ),
-          ],
-        ),
+        child: FutureBuilder<PackageInfo>(
+            future: _packageInfoFuture,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final packageInfo = snapshot.data!;
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      packageInfo.appName,
+                      style: TextStyle(
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      'Version ${packageInfo.version}',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+                    ),
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              return const CircularProgressIndicator();
+            }),
       ),
     );
-  }
-
-  void _loadPackageInfo() async {
-    _packageInfo = await PackageInfo.fromPlatform();
-    setState(() {
-      _packageInfo = _packageInfo;
-    });
   }
 }
