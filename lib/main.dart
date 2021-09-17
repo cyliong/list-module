@@ -3,7 +3,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:list_module/page/about_page.dart';
 
-void main() => runApp(App());
+void main() => runApp(const App());
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Platform.isIOS ? Colors.grey : Colors.teal,
       ),
-      home: AboutPage(),
+      home: const AboutPage(),
       debugShowCheckedModeBanner: false,
     );
   }

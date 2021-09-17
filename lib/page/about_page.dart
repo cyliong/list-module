@@ -14,7 +14,7 @@ class AboutPage extends StatelessWidget {
           ? null
           : AppBar(
               leading: IconButton(
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () => SystemNavigator.pop(animated: true),
               ),
               title: const Text('About'),
@@ -30,14 +30,14 @@ class AboutPage extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       packageInfo.appName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 50.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
                       'Version ${packageInfo.version}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18.0,
                       ),
                     ),
