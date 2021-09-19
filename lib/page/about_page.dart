@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class AboutPage extends StatelessWidget {
@@ -46,7 +47,7 @@ class AboutPage extends StatelessWidget {
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               }
-              return const CircularProgressIndicator();
+              return PlatformCircularProgressIndicator();
             }),
       ),
     );
