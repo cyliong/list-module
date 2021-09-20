@@ -6,6 +6,7 @@ in order to share a single codebase written in Dart across platforms.
 
 ## Dependencies
 - package_info_plus
+- flutter_platform_widgets
 
 ## Requirements
 - Flutter 2.5.1 or higher
