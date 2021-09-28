@@ -29,13 +29,7 @@ class AboutPage extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
-                      packageInfo.appName,
-                      style: const TextStyle(
-                        fontSize: 50.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    AppLogo(appName: packageInfo.appName),
                     Text(
                       'Version ${packageInfo.version}',
                       style: const TextStyle(
@@ -49,6 +43,26 @@ class AboutPage extends StatelessWidget {
               }
               return PlatformCircularProgressIndicator();
             }),
+      ),
+    );
+  }
+}
+
+class AppLogo extends StatelessWidget {
+  const AppLogo({
+    Key? key,
+    required this.appName,
+  }) : super(key: key);
+
+  final String appName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      appName,
+      style: const TextStyle(
+        fontSize: 50.0,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
