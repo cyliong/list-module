@@ -1,4 +1,5 @@
 import 'dart:io' show Platform;
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -73,9 +74,17 @@ class AppLogo extends StatelessWidget {
         ),
         Text(
           appName,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: fontSize,
-            color: Colors.lime,
+            foreground: Paint()
+              ..shader = ui.Gradient.linear(
+                const Offset(150, 0),
+                const Offset(250, 0),
+                const [
+                  Colors.green,
+                  Colors.lime,
+                ],
+              ),
           ),
         ),
       ],
