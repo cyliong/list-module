@@ -56,14 +56,29 @@ class AppLogo extends StatelessWidget {
 
   final String appName;
 
+  static const fontSize = 50.0;
+
   @override
   Widget build(BuildContext context) {
-    return Text(
-      appName,
-      style: const TextStyle(
-        fontSize: 50.0,
-        fontWeight: FontWeight.bold,
-      ),
+    return Stack(
+      children: [
+        Text(
+          appName,
+          style: TextStyle(
+            fontSize: fontSize,
+            foreground: Paint()
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = 3,
+          ),
+        ),
+        Text(
+          appName,
+          style: const TextStyle(
+            fontSize: fontSize,
+            color: Colors.lime,
+          ),
+        ),
+      ],
     );
   }
 }
