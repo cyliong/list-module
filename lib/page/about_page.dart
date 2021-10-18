@@ -61,6 +61,7 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final centerX = MediaQuery.of(context).size.width / 2;
     return Stack(
       children: [
         Text(
@@ -78,8 +79,8 @@ class AppLogo extends StatelessWidget {
             fontSize: fontSize,
             foreground: Paint()
               ..shader = ui.Gradient.linear(
-                const Offset(150, 0),
-                const Offset(250, 0),
+                Offset(centerX - 30, 0),
+                Offset(centerX + 30, 0),
                 const [
                   Colors.green,
                   Colors.lime,
