@@ -30,7 +30,10 @@ class AboutPage extends StatelessWidget {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    AppLogo(appName: packageInfo.appName),
+                    GestureDetector(
+                      onTap: () {},
+                      child: AppLogo(appName: packageInfo.appName),
+                    ),
                     Text(
                       'Version ${packageInfo.version}',
                       style: const TextStyle(
