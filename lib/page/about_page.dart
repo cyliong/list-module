@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
+
+  static const String _url = 'https://github.com/cyliong';
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,9 @@ class AboutPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () async {
+                        if (await canLaunch(_url)) launch(_url);
+                      },
                       child: AppLogo(appName: packageInfo.appName),
                     ),
                     Text(
