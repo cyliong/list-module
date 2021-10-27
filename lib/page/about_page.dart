@@ -10,7 +10,8 @@ import 'package:url_launcher/url_launcher.dart';
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
 
-  static const String _url = 'https://github.com/cyliong';
+  static const String _androidUrl = 'https://github.com/cyliong/list-android';
+  static const String _iosUrl = 'https://github.com/cyliong/list-ios';
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,8 @@ class AboutPage extends StatelessWidget {
                   children: <Widget>[
                     GestureDetector(
                       onTap: () async {
-                        if (await canLaunch(_url)) launch(_url);
+                        final url = Platform.isIOS ? _iosUrl : _androidUrl;
+                        if (await canLaunch(url)) launch(url);
                       },
                       child: AppLogo(appName: packageInfo.appName),
                     ),
