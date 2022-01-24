@@ -33,7 +33,7 @@ class AboutPage extends StatelessWidget {
                 final packageInfo = snapshot.data!;
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
+                  children: [
                     GestureDetector(
                       onTap: () async {
                         final url = Platform.isIOS ? _iosUrl : _androidUrl;
