@@ -18,5 +18,5 @@ including:
 - url_launcher
 
 ## Requirements
-- Flutter 2.8.1 or higher
-- Dart 2.15.1 or higher
+- Flutter 2.10.0 or higher
+- Dart 2.16.0 or higher
